@@ -10,5 +10,8 @@ module.exports = {
 				directory: process.env.SPACES_DIRECTORY
 			},
 		},
-	}, 
+	},
+	'random-sort': {
+		enabled: true,
+	},
 };
