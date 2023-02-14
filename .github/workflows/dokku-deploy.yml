@@ -16,7 +16,7 @@ jobs:
         fetch-depth: 0
 
     - name: Push to dokku
-      uses: lorenalexm/action-dokku-deploy@1.0.0
+      uses: lorenalexm/action-dokku-push@1.0.0
       with:
         dokku_repo: 'ssh://dokku@myside.app:22/inw-stock-photos-strapi'
         ssh_key: ${{ secrets.SSH_KEY }}
