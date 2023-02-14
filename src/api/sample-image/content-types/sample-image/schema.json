@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sample_images",
+  "info": {
+    "singularName": "sample-image",
+    "pluralName": "sample-images",
+    "displayName": "Sample Images",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    }
+  }
+}
