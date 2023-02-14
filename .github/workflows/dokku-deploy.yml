@@ -1,0 +1,31 @@
+name: 'Deploy to Dokku'
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  DOKKU_REPO: 'ssh://dokku@myside.app:inw-stock-photos-strapi'
+  DOKKU_DEPLOY_BRANCH: 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.4.1
+      with:
+        access_token: ${{ github.token }}
+
+    - name: Cloning repo
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Push to dokku
+      uses: obrassard/action-dokku-deploy@v1.0.1
+      with:
+        ssh_key: ${{ secrets.SSH_KEY }}
+        dokku_repo: ${{ env.DOKKU_REPO }}
+        deploy_branch: ${{ env.DOKKU_DEPLOY_BRANCH }}
