@@ -2,11 +2,8 @@ name: 'Deploy to Dokku'
 
 on:
   push:
-    branches: [ main ]
-
-env:
-  DOKKU_REPO: 'ssh://dokku@myside.app:22/inw-stock-photos-strapi'
-  DOKKU_DEPLOY_BRANCH: 'main'
+    branches: 
+      - main
 
 jobs:
   deploy:
@@ -21,6 +18,6 @@ jobs:
     - name: Push to dokku
       uses: obrassard/action-dokku-deploy@v1.0.1
       with:
+        dokku_repo: 'ssh://dokku@myside.app:22/inw-stock-photos-strapi'
         ssh_key: ${{ secrets.SSH_KEY }}
-        dokku_repo: ${{ env.DOKKU_REPO }}
-        deploy_branch: ${{ env.DOKKU_DEPLOY_BRANCH }}
+        deploy_branch: 'main'
