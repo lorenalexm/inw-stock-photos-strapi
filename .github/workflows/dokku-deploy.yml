@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 env:
-  DOKKU_REPO: 'ssh://dokku@myside.app:inw-stock-photos-strapi'
+  DOKKU_REPO: 'ssh://dokku@myside.app:22/inw-stock-photos-strapi'
   DOKKU_DEPLOY_BRANCH: 'main'
 
 jobs:
